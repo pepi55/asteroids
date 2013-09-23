@@ -1,0 +1,22 @@
+﻿using UnityEngine;
+using System.Collections;
+
+public class Player : MonoBehaviour {
+
+	public float speed;
+	public float turnSpeed;
+
+	// Use this for initialization
+	void Start () {
+	
+	}
+	
+	// Update is called once per frame
+	void FixedUpdate () {
+		float dirX = Input.GetAxis("Horizontal") * Time.deltaTime;
+		float dirY = Input.GetAxis("Vertical") * Time.deltaTime;
+
+		rigidbody.AddRelativeForce(Vector3.up * speed * dirY * Time.deltaTime);
+		transform.Rotate(new Vector3(0, 0, dirX * turnSpeed));
+	}
+}
