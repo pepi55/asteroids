@@ -2,6 +2,7 @@
 using System.Collections;
 
 public class Asteroid : MonoBehaviour {
+	public float size;
 
 	// Use this for initialization
 	void Start () {
@@ -44,6 +45,8 @@ public class Asteroid : MonoBehaviour {
 		if (collision.collider.tag == Tags.bullet)
 		{
 			Destroy(gameObject);
+			
+			Instantiate(Resources.Load("Asteroid" + size), transform.position, Quaternion.identity);
 		}
 	}
 }
